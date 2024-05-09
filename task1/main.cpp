@@ -4,14 +4,12 @@
 using namespace std;
 
 int main() {
-    int x=10;
-    thread thr1([&x]{cout<<x*x;});
+
+    thread thr1([](int x){cout<<x*x<<endl;},5);
     cout<<endl;
-    int y=5;
-    thread thr2([&y]{cout<<y*y;});
+    thread thr2([](int x){cout<<x*x;},4);
     cout<<endl;
-    int z=2;
-    thread thr3([&z]{cout<<z*z;});
+    thread thr3([](int x){cout<<x*x;},3);
     cout<<endl;
     thr1.join();
     thr2.join();
